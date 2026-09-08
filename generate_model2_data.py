@@ -25,20 +25,20 @@ npk_profiles = []
 
 for fs in sampled_feedstocks:
   if 'Standard PH Household' in fs:
-    moisture = np.random.uniform(72.0, 82.0)  # High due to rice + sauces/sabaw
-    load = np.random.uniform(1.6, 2.3)  # Viscous gelled starch slurry
+    moisture = np.random.uniform(72.0, 82.0)  
+    load = np.random.uniform(1.6, 3.5)  # INCREASED: Accommodates thick, wet rice slurry
     npk = 'Balanced Organic (High C / Moderate K)'
   elif 'High-Vegetable' in fs:
     moisture = np.random.uniform(78.0, 88.0)
-    load = np.random.uniform(1.2, 1.7)
+    load = np.random.uniform(1.2, 2.0)  # Lighter resistance
     npk = 'High Nitrogen & Fiber (N-Rich)'
   elif 'High-Protein' in fs:
     moisture = np.random.uniform(65.0, 76.0)
-    load = np.random.uniform(1.8, 2.6)
+    load = np.random.uniform(1.8, 3.0)
     npk = 'High Phosphorus & Nitrogen (P-N Rich)'
   else:  # Pure Carbs
     moisture = np.random.uniform(68.0, 78.0)
-    load = np.random.uniform(1.9, 2.8)  # Thick starch resistance
+    load = np.random.uniform(2.0, 4.5)  # INCREASED: Extreme starch resistance (Soggy Start limits)
     npk = 'Organic Soil Conditioner (High Carbon)'
 
   initial_moisture_pct.append(round(moisture, 2))
